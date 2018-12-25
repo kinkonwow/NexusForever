@@ -12,6 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping structure for table nexus_forever_world.entity
+
+CREATE DATABASE IF NOT EXISTS nexus_forever_world;
+
+USE nexus_forever_world;
+
 CREATE TABLE IF NOT EXISTS `entity` (
   `id` int(10) unsigned NOT NULL DEFAULT '0',
   `type` tinyint(3) unsigned NOT NULL DEFAULT '0',

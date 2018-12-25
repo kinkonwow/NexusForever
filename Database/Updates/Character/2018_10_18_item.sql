@@ -1,3 +1,5 @@
+USE nexus_forever_character;
+
 CREATE TABLE IF NOT EXISTS `item` (
     `id` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
     `ownerId` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',

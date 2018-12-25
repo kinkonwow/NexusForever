@@ -12,6 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping structure for table nexus_forever_character.character
+
+CREATE DATABASE IF NOT EXISTS nexus_forever_character;
+
+USE nexus_forever_character;
+
 CREATE TABLE IF NOT EXISTS `character` (
   `id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `accountId` int(10) unsigned NOT NULL DEFAULT '0',

@@ -1,3 +1,5 @@
+USE nexus_forever_character;
+
 CREATE TABLE IF NOT EXISTS `character_bone` (
     `id` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
     `boneIndex` TINYINT(4) UNSIGNED NOT NULL DEFAULT '0',

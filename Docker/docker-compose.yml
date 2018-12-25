@@ -1,0 +1,57 @@
+version: '3.7'
+ 
+services:
+   nexus_db:
+     image: nexusforever/nexus_db
+     build:
+      dockerfile: ./Docker/database.dockerfile
+      context: ../
+     environment:
+       MYSQL_RANDOM_ROOT_PASSWORD: 1
+     volumes:
+       - my_data:/var/lib/mysql
+     restart: always
+ 
+   nexus_auth:
+     depends_on:
+       - nexus_db
+     image: nexusforever/authserver
+     build:
+       dockerfile: ./Docker/authserver.dockerfile
+       context: ../
+     ports:
+       - "23115:23115"
+     restart: always
+     links:
+      - nexus_db
+
+   nexus_sts:
+     depends_on:
+       - nexus_auth
+     image: nexusforever/stsserver
+     build:
+       dockerfile: ./Docker/stsserver.dockerfile
+       context: ../
+     ports:
+       - "6600:6600"
+     restart: always
+     links:
+      - nexus_db
+
+   nexus_world:
+     depends_on:
+       - nexus_sts
+     image: nexusforever/worldserver
+     build:
+       dockerfile: ./Docker/worldserver.dockerfile
+       context: ../
+     ports:
+       - "24000:24000"
+     restart: always
+     links:
+      - nexus_db
+     stdin_open: true
+     tty: true
+
+volumes:
+  my_data:

@@ -1,3 +1,5 @@
+USE nexus_forever_character;
+
 CREATE TABLE IF NOT EXISTS `character_currency` (
     `id` BIGINT(20) UNSIGNED NOT NULL DEFAULT '0',
     `currencyId` TINYINT(4) UNSIGNED NOT NULL DEFAULT '0',

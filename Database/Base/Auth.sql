@@ -12,6 +12,17 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping structure for table nexus_forever_auth.account
+
+CREATE DATABASE IF NOT EXISTS nexus_forever_auth;
+
+USE nexus_forever_auth;
+
+CREATE USER 'nexusforever'@'%' IDENTIFIED BY 'nexusforever';
+
+GRANT ALL PRIVILEGES ON * . * TO 'nexusforever'@'%';
+
+FLUSH PRIVILEGES;
+
 CREATE TABLE IF NOT EXISTS `account` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(128) NOT NULL DEFAULT '',
@@ -36,6 +47,8 @@ CREATE TABLE IF NOT EXISTS `server` (
   `type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `server`(name,host,port,type) VALUES ('NexusForever', '127.0.0.1', 24000, 0);
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
